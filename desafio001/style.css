@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    background-color: rgb(243, 143, 193);
+    color: white;
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+h3{
+    padding-top: 10px;
+    margin: auto;
+    width: fit-content;
+}
