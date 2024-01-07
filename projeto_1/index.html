@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="calculator">
+        <h3>My calculator</h3>
+        <input type="text" id="number-one" name="number-one" required><br>
+        <input type="text" id="number-two" name="number-two" required><br>
+        <div id="operation">
+            <input type="radio" name="operation" id="sum" checked> +
+            <input type="radio" name="operation" id="sub"> -
+            <input type="radio" name="operation" id="mult"> *
+            <input type="radio" name="operation" id="divid"> /
+        </div>
+        <button type="button" onclick="makeTheOperation()">Calculate</button>
+        <h3 id="result"></h3>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
