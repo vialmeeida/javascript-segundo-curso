@@ -1,10 +1,14 @@
-
-document.getElementById('botao').onclick = calcula;
-
 function calcula() {
     const calculo = tipCalculator();
-    console.log(calculo);
+    
     splitTip(calculo);
+}
+
+function mySliders() {
+    let percentageValue = document.getElementById('tipInput').value;
+    document.getElementById('tipPercent').innerHTML = percentageValue + "%";
+
+    calcula();
 }
 
 function tipCalculator() {
@@ -29,12 +33,16 @@ function tipCalculator() {
 
 function splitTip(totalBill) {
     const numberPeople = Number(document.getElementById('splitInput').value);
-    
+
     const billAfterSplit = totalBill / numberPeople;
+
+    if (numberPeople == 1) {
+        document.getElementById('splitValue').innerHTML = numberPeople + " person";
+    } else {
+        document.getElementById('splitValue').innerHTML = numberPeople + " people";
+    }
 
     console.log(billAfterSplit);
 
     document.getElementById('billEach').innerHTML = billAfterSplit.toFixed(2);
 }
-
-
