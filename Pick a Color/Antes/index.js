@@ -11,6 +11,8 @@ function changeColor() {
     let randomNumber;
     do {
         randomNumber = Math.floor(Math.random() * colors.length);
+        //Quando vc multiplica o math por um comprimento, ele gera numeros entre esse comprimento
+        //O floor serve para pegar numeros inteiros 
     } while (randomNumber == verifyRandom)
 
     verifyRandom = randomNumber;
