@@ -5,7 +5,6 @@ console.log(randomNumber);
 
 //pegando o palpite do jogador
 let guess = document.getElementById('inputBox');
-console.log(guess);
 
 //pegando o numero de tentativas do jogador
 let attempts = document.getElementById('attempts');
@@ -14,21 +13,24 @@ let attemptsNumber = 0;
 
 let attemptsList = [];
 
-//pegando os palpites do jogador]
+let textAnaliser = document.getElementById("textOutput");
+
+//pegando os palpites do jogador
 let guesses = document.getElementById('guesses');
 
 // guess.onkeydown = rodaCoisaQuandoTeclar;
 
- guess.addEventListener('keydown', rodaCoisaQuandoTeclar);
+guess.addEventListener('keydown', playGame);
 
-function rodaCoisaQuandoTeclar(e) {
+function playGame(e) {
     if (e.key === 'Enter') {
         // pega o que esta escrito
         const valorEscrito = e.target.value;
         console.log(valorEscrito);
 
-        // verificar se o numero digitado ja foi digitado
-        // se ja foi, nao incrementa tentativa nem adiciona na lista
+        // verificar se o numero digitado ja foi digitado. Se ja foi, nao incrementa tentativa nem adiciona na lista!!!!
+
+        newGameButton.onclick = resetOnNewGame;
 
         attemptsNumber++;
         attempts.innerHTML = attemptsNumber;
@@ -36,13 +38,24 @@ function rodaCoisaQuandoTeclar(e) {
         guesses.innerHTML = attemptsList;
 
         if (valorEscrito == randomNumber) {
-            console.log("Venceu")
+            textAnaliser.innerHTML = "Congratulations!!!!!"
             e.target.disabled = true;
         } else {
-            e.target.value = null; // valor que a pessoa digitou some
-            //imprimir se eh muito baixo ou muito alto
+            if (valorEscrito > randomNumber) { //imprimindo se o palpite foi muito baixo ou muito alto
+                textAnaliser.innerHTML = "Your number is too high"
+            } else {
+                textAnaliser.innerHTML = "Your number is too low"
+            }
+            e.target.value = null; // valor que a pessoa digitou some da caixinha para nao atrapalhar a escrita do proximo
         }
     }
 }
 
-//tem que zerar o jogo quando clicar em new game (funcaozinha zerar o jogo)
+//function verifyGuessIsNew(number){
+    
+function resetOnNewGame() {
+    attemptsNumber = 0;
+    attemptsList = [];
+    attempts.innerHTML = 0;
+    guesses.innerHTML = 0;
+}
